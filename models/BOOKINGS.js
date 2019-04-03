@@ -6,6 +6,9 @@ var BOOKINGS  = mongoose.model('BOOKINGS',{
 	username : {
 		type: 'String',
 	},
+	room_name: {
+		type: 'String'
+	},
 	roomid: {
 		type: 'String'
 	},
