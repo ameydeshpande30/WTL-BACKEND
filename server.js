@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var url = "mongodb://localhost/meetroom";
 mongoose.connect(url)
@@ -12,6 +13,8 @@ const {ROOM}  = require(process.cwd() + '/models/ROOM');
 var router = express.Router();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.use('/auth', loginRoute)
@@ -22,6 +25,7 @@ function verifyJWT(token)
   {
     jwt.verify(token, key, (err, decodedToken) =>
     {
+
       if (err || !decodedToken)
       {
         return reject(err)
@@ -33,10 +37,10 @@ function verifyJWT(token)
 }
 
 router.use(function (req, res, next) {
-    jwt.verifyJWT(req.header('x-auth-token'))
+    verifyJWT(req.header('x-auth-token'))
       .then((decodedToken) =>
       {
-        var dateNow = new Date();
+          var dateNow = new Date();
           res.locals.userid = decodedToken.data;
           next()
 
@@ -44,27 +48,11 @@ router.use(function (req, res, next) {
       .catch((err) =>
       {
         res.status(400)
-          .json({message: "Invalid auth token provided."})
+          .json({message: "Invalid auth token provided." + err})
       })
 
   })
   //hello
-  router.get('/room',(req, res) => {
-    ROOM.find({}, {'__v' : 0}, (err, data) => {
-      if(err){
-        res.sendStatus(500)
-      }
-      else {
-        res.send(data)
-      }
-    })
-  })
-  app.post('/room', (req, res) => {
-    var timeDate = req.body.date
-    var userid = res.locals.userid
-
-    res.send(200)
-  })
   app.get("/test", (req, res) => {
     var room1 = ROOM({
       "name" : "Room 212",
@@ -122,5 +110,7 @@ router.use(function (req, res, next) {
     room9.save()
     res.send("test")
   })
+app.use("/", router)
+require('./amey/main')(app, router);
 require('./ronit/main')(app, router);
 app.listen(3000)
