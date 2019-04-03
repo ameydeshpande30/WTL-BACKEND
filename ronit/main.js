@@ -1,18 +1,23 @@
 const {BOOKINGS} = require(process.cwd() + '/models/BOOKINGS');
-module.exports = function(app, router){
-  app.post('/bookings', (req,res) =>{
-    BOOKINGS.find({}, (err,data) => {
+var hbs = require('hbs');
 
+// Use `.hbs` for extensions and find partials in `views/partials`.
+
+module.exports = function(app, router){
+
+  app.get('/bookings', (req,res) =>{
+    BOOKINGS.find({}, (err,data) => {
+      res.render('bookings', data)
     });
 
-  }
+  })
 
   app.get('/feedbacks', (req,res) =>{
     FEEDBACKS.find({}, (err,data) => {
 
     });
 
-  }
+  })
 
   router.post('/feedbacks', (req,res) =>{
     FEEDBACKS.find({}, (err,data) => {
@@ -21,11 +26,10 @@ module.exports = function(app, router){
     var user = new FEEDBACKS({
           userid : userid,
           comment : comment,
-
         });
        user.save()
     });
 
-  }
+  })
 
 }

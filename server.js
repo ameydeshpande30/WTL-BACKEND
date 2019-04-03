@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+var hbs = require('hbs');
 const jwt = require('jsonwebtoken');
 var mongoose = require('mongoose');
 var url = "mongodb://localhost/meetroom";
@@ -13,6 +14,8 @@ const {ROOM}  = require(process.cwd() + '/models/ROOM');
 var router = express.Router();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
@@ -110,7 +113,8 @@ router.use(function (req, res, next) {
     room9.save()
     res.send("test")
   })
+  require('./amey/main')(app, router);
+  require('./ronit/main')(app, router);
 app.use("/", router)
-require('./amey/main')(app, router);
-require('./ronit/main')(app, router);
+
 app.listen(3000)
