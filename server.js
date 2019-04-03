@@ -49,7 +49,7 @@ router.use(function (req, res, next) {
 
   })
   //hello
-  app.get('/room',(req, res) => {
+  router.get('/room',(req, res) => {
     ROOM.find({}, {'__v' : 0}, (err, data) => {
       if(err){
         res.sendStatus(500)
@@ -122,4 +122,5 @@ router.use(function (req, res, next) {
     room9.save()
     res.send("test")
   })
+require('./ronit/main')(app, router);
 app.listen(3000)
