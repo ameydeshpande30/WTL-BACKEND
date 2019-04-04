@@ -12,6 +12,8 @@ const loginRoute = require('./Auth/login');
 var app = express();
 const {ROOM}  = require(process.cwd() + '/models/ROOM');
 var router = express.Router();
+const hbss = require('express-handlebars');
+app.engine('hbss', hbss({extname: 'hbs', layoutsDir: __dirname+'views/'}))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
