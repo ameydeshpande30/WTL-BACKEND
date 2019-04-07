@@ -13,6 +13,15 @@ module.exports = function(app, router){
     });
 
   })
+  app.post('/department', (req,res) =>{
+    BOOKINGS.find({location:""}, (err,data) => {
+
+      res.render('department', {data:data});
+    });
+
+  })
+
+
 
   app.get('/feedbacks', (req,res) =>{
     FEEDBACK.find({}, (err,data) => {
