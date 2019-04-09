@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" >
-
+<!DOCTYPE  html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bookings According to Department</title>
+  <title>Bookings</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -11,27 +10,42 @@
 <link rel='stylesheet' href='https://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css'>
 <link rel='stylesheet' href='https://cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css'>
 
-      <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/index.css">
 
 
 </head>
-<link rel="stylesheet" href="index.css">
 <body>
   <div class="topnav">
-    <a href="bookings.hbs" >Bookings</a>
-    <a href="department.hbs">Department Wise Bookings</a>
-    <a href="feedbacks.html">FeedBacks</a>
+    <a href="/admin/check/" >Bookings</a>
+    <a href="/department">Department Wise Bookings</a>
+    <a href="/feedbacks">FeedBacks</a>
+    <a href="/aboutus">About us</a>
   </div>
+<link rel="stylesheet" href="index.css">
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <div class="header">
+  <h1>Meeting Room Booking</h1>
+  <p>Book room according to Current State</p>
+</div>
   <h2>Meeting Rooms Booked According to Department</h2>
-<div>
+<div >
+<center>
     <form method="post" action="/department">
     <select name="option">
-      <option>IT</option>
-      <option>Computer</option>
-      <option>Entc</option>
+      <option name="option" value="IT" >IT</option>
+      <option name="option" value = "Computer" >Computer</option>
+      <option name="option" value = "Entc" >Entc</option>
     </select>
+    <button type = "submit">Submit</button>
   </form>
-
+</center>
 </div>
 <div class="container">
   <div class="row">
@@ -69,14 +83,13 @@
 <script src='https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js'></script>
 <script src='https://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js'></script>
 <script src='https://cdn.datatables.net/responsive/1.0.4/js/dataTables.responsive.js'></script>
-
-
-
-    <script  src="js/index.js"></script>
-
-
-
-
+<script  src="js/index.js"></script>
 </body>
 
+ <footer>
+  <p>Posted by: Hege Refsnes</p>
+  <p>Contact information:<a href="mailto:someone@example.com">
+  someone@example.com</a>.</p>
+
+</footer>
 </html>

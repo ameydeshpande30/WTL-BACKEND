@@ -14,13 +14,27 @@ module.exports = function(app, router){
 
   })
   app.post('/department', (req,res) =>{
-    BOOKINGS.find({location:""}, (err,data) => {
+
+    var type = req.body.option
+    BOOKINGS.find({location:type}, (err,data) => {
 
       res.render('department', {data:data});
     });
 
   })
+  app.get('/department', (req,res) =>{
 
+    BOOKINGS.find({}, (err,data) => {
+
+      res.render('department', {data:data});
+    });
+
+  })
+  app.get('/aboutus', (req,res) =>{
+
+      res.render('about-us');
+
+  })
 
 
   app.get('/feedbacks', (req,res) =>{

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 //Todo is the model
-var FEEDBACKS  = mongoose.model('FEEDBACKS',{
+var FEEDBACK  = mongoose.model('FEEDBACK',{
 	username : {
 		type: 'String',
 	},
@@ -12,5 +12,5 @@ var FEEDBACKS  = mongoose.model('FEEDBACKS',{
 });
 
 module.exports = {
- FEEDBACKS
+ FEEDBACK
 };
