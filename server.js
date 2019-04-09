@@ -59,60 +59,65 @@ router.use(function (req, res, next) {
   })
   //hello
   app.get("/test", (req, res) => {
-    var room1 = ROOM({
-      "name" : "Room 212",
-      "location" : "Comp",
-      "path" : "images/room1.jpg"
-    })
-    room1.save()
-    var room2  = ROOM({
-      "name" : "Room 311",
-      "location" : "Comp",
-      "path" : "images/room2.jpg"
-    })
-    room2.save()
-    var room3 = ROOM({
-      "name" : "Room 310",
-      "location" : "Comp",
-      "path" : "images/room3.jpg"
-    })
-    room3.save()
-    var room4 = ROOM({
-      "name" : "Room 212",
-      "location" : "IT",
-      "path" : "images/room4.jpg"
-    })
-    room4.save()
-    var room5 = ROOM({
-      "name" : "Room 311",
-      "location" : "IT",
-      "path" : "images/room5.jpg"
-    })
-    room5.save()
-    var room6 = ROOM({
-      "name" : "Room 310",
-      "location" : "IT",
-      "path" : "images/room6.jpg"
-    })
-    room6.save()
-    var room7 = ROOM({
-      "name" : "Room 212",
-      "location" : "Entc",
-      "path" : "images/room7.jpg"
-    })
-    room7.save()
-    var room8 = ROOM({
-      "name" : "Room 310",
-      "location" : "Entc",
-      "path" : "images/room8.jpg"
-    })
-    room8.save()
-    var room9 = ROOM({
-      "name" : "Room 311",
-      "location" : "Entc",
-      "path" : "images/room9.jpg"
-    })
-    room9.save()
+    var feedbacks = new FEEDBACK({
+      "username" : "amey",
+      "comment" : "nice service"
+     })
+     feedbacks.save()
+    // var room1 = ROOM({
+    //   "name" : "Room 212",
+    //   "location" : "Comp",
+    //   "path" : "images/room1.jpg"
+    // })
+    // room1.save()
+    // var room2  = ROOM({
+    //   "name" : "Room 311",
+    //   "location" : "Comp",
+    //   "path" : "images/room2.jpg"
+    // })
+    // room2.save()
+    // var room3 = ROOM({
+    //   "name" : "Room 310",
+    //   "location" : "Comp",
+    //   "path" : "images/room3.jpg"
+    // })
+    // room3.save()
+    // var room4 = ROOM({
+    //   "name" : "Room 212",
+    //   "location" : "IT",
+    //   "path" : "images/room4.jpg"
+    // })
+    // room4.save()
+    // var room5 = ROOM({
+    //   "name" : "Room 311",
+    //   "location" : "IT",
+    //   "path" : "images/room5.jpg"
+    // })
+    // room5.save()
+    // var room6 = ROOM({
+    //   "name" : "Room 310",
+    //   "location" : "IT",
+    //   "path" : "images/room6.jpg"
+    // })
+    // room6.save()
+    // var room7 = ROOM({
+    //   "name" : "Room 212",
+    //   "location" : "Entc",
+    //   "path" : "images/room7.jpg"
+    // })
+    // room7.save()
+    // var room8 = ROOM({
+    //   "name" : "Room 310",
+    //   "location" : "Entc",
+    //   "path" : "images/room8.jpg"
+    // })
+    // room8.save()
+    // var room9 = ROOM({
+    //   "name" : "Room 311",
+    //   "location" : "Entc",
+    //   "path" : "images/room9.jpg"
+    // })
+    // room9.save()
     res.send("test")
   })
   require('./amey/main')(app, router);
